@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '../views/LoginView.vue'
-import SkyWayView from '../views/SkyWayView.vue'
+import cognito from '@/utils/cognito'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,12 +7,22 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: () => import('../views/LoginView.vue')
     },
     {
       path: '/skyway',
       name: 'skyway',
-      component: SkyWayView
+      component: () => import('../views/SkyWayView.vue'),
+      beforeEnter: async (to, from, next) => {
+        await cognito
+          .getIdToken()
+          .then(() => {
+            next()
+          })
+          .catch(() => {
+            next({ path: '/login' })
+          })
+      }
     },
     {
       path: '/',
