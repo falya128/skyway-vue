@@ -1,35 +1,42 @@
-# skyway-vue
+# SkyWay Vue
 
-This template should help get you started developing with Vue 3 in Vite.
+## 概要
 
-## Recommended IDE Setup
+SkyWay のチュートリアルを元にして作成したプロジェクトです。
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+https://github.com/skyway/js-sdk/tree/main/examples/tutorial
 
-## Customize configuration
+### 変更点
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Vue で実装
+- Amazon Cognito による認証を追加
+- バックエンドで生成した SkyWay Auth Token を取得する
 
-## Project Setup
+## 開始手順
 
-```sh
+### 各種ライブラリのインストール
+
+```powershell
+cd skyway-vue
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 環境設定
 
-```sh
+```powershell
+cp .env.example .env
+```
+
+以下の箇所を変更
+
+```
+VITE_COGNITO_USER_POOL_ID=[Cognito ユーザープールID]
+VITE_COGNITO_CLIENT_ID=[Cognito クライアントID]
+VITE_FETCH_TOKEN_URL=[SkyWay Auth Token 取得APIのURL]
+```
+
+### 起動
+
+```powershell
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
