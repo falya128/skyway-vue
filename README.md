@@ -6,6 +6,10 @@ SkyWay のチュートリアルを元にして作成したプロジェクトで�
 
 https://github.com/skyway/js-sdk/tree/main/examples/tutorial
 
+動作するためには、バックエンドのAPIを作成する必要があります。  
+詳しくは下記のURLをご参照ください。  
+https://qiita.com/falya128/items/71d5a092a6119f8fad02
+
 ### 変更点
 
 - Vue で実装
